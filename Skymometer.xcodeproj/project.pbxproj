@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		B218DDFE25AF0105002E61F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218DDFD25AF0105002E61F6 /* AppDelegate.swift */; };
 		B218DE0025AF0105002E61F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218DDFF25AF0105002E61F6 /* SceneDelegate.swift */; };
-		B218DE0225AF0105002E61F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218DE0125AF0105002E61F6 /* ViewController.swift */; };
-		B218DE0525AF0105002E61F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B218DE0325AF0105002E61F6 /* Main.storyboard */; };
 		B218DE0725AF0106002E61F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B218DE0625AF0106002E61F6 /* Assets.xcassets */; };
 		B218DE0A25AF0106002E61F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B218DE0825AF0106002E61F6 /* LaunchScreen.storyboard */; };
+		B218DE1525AF0284002E61F6 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218DE1425AF0284002E61F6 /* LaunchViewController.swift */; };
+		B218DE1925AF02B9002E61F6 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B218DE1825AF02B9002E61F6 /* WeatherViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B218DDFA25AF0105002E61F6 /* Skymometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Skymometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B218DDFD25AF0105002E61F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B218DDFF25AF0105002E61F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B218DE0125AF0105002E61F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B218DE0425AF0105002E61F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B218DE0625AF0106002E61F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B218DE0925AF0106002E61F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B218DE0B25AF0106002E61F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B218DE1425AF0284002E61F6 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		B218DE1825AF02B9002E61F6 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +58,8 @@
 			children = (
 				B218DDFD25AF0105002E61F6 /* AppDelegate.swift */,
 				B218DDFF25AF0105002E61F6 /* SceneDelegate.swift */,
-				B218DE0125AF0105002E61F6 /* ViewController.swift */,
-				B218DE0325AF0105002E61F6 /* Main.storyboard */,
+				B218DE1425AF0284002E61F6 /* LaunchViewController.swift */,
+				B218DE1825AF02B9002E61F6 /* WeatherViewController.swift */,
 				B218DE0625AF0106002E61F6 /* Assets.xcassets */,
 				B218DE0825AF0106002E61F6 /* LaunchScreen.storyboard */,
 				B218DE0B25AF0106002E61F6 /* Info.plist */,
@@ -126,7 +126,6 @@
 			files = (
 				B218DE0A25AF0106002E61F6 /* LaunchScreen.storyboard in Resources */,
 				B218DE0725AF0106002E61F6 /* Assets.xcassets in Resources */,
-				B218DE0525AF0105002E61F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +136,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B218DE0225AF0105002E61F6 /* ViewController.swift in Sources */,
 				B218DDFE25AF0105002E61F6 /* AppDelegate.swift in Sources */,
+				B218DE1925AF02B9002E61F6 /* WeatherViewController.swift in Sources */,
 				B218DE0025AF0105002E61F6 /* SceneDelegate.swift in Sources */,
+				B218DE1525AF0284002E61F6 /* LaunchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B218DE0325AF0105002E61F6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B218DE0425AF0105002E61F6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B218DE0825AF0106002E61F6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,6 +281,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W2W2AQ8GG8;
 				INFOPLIST_FILE = Skymometer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +289,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Solovyov.Skymometer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W2W2AQ8GG8;
 				INFOPLIST_FILE = Skymometer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +309,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Solovyov.Skymometer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
