@@ -56,8 +56,7 @@ class LaunchViewController: UIViewController {
          sky].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         NSLayoutConstraint.activate([
-            sun.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            sun.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            sun.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             sun.widthAnchor.constraint(equalToConstant: 200),
             sun.heightAnchor.constraint(equalToConstant: 200),
             sun.bottomAnchor.constraint(equalTo: label.topAnchor, constant: -20)
@@ -71,10 +70,8 @@ class LaunchViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            label.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            label.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            label.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
             label.heightAnchor.constraint(equalToConstant: 50)
         ])
         
