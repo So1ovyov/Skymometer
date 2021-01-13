@@ -18,20 +18,6 @@ class WeatherViewController: UIViewController {
         return view
     }()
     
-    let firstView: UIImageView = {
-        let view = UIImageView()
-        view.backgroundColor = .clear
-        view.isUserInteractionEnabled = true
-        return view
-    }()
-    
-    let secondView: UIImageView = {
-        let view = UIImageView()
-        view.backgroundColor = .clear
-        view.isUserInteractionEnabled = true
-        return view
-    }()
-    
     let weatherIconImageView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(systemName: "xmark.icloud.fill")
@@ -49,7 +35,7 @@ class WeatherViewController: UIViewController {
     
     let cityLabel: UILabel = {
         let label = UILabel()
-        label.text = "Moscow"
+        label.text = "City"
         label.font = UIFont(name: "Copperplate", size: 30)
         label.tintColor = .black
         label.backgroundColor = .clear
@@ -59,41 +45,22 @@ class WeatherViewController: UIViewController {
     
     let temperatureLabel: UILabel = {
         let label = UILabel()
-        label.text = "20"
+        label.text = "0°C"
         label.font = UIFont(name: "Copperplate", size: 60)
-        label.tintColor = .black
-        label.backgroundColor = .clear
-        label.textAlignment = .right
-        return label
-    }()
-    
-    let temperatureTextLabel: UILabel = {
-        let label = UILabel()
-        label.text = "°C"
-        label.font = UIFont(name: "Copperplate", size: 60)
-        label.tintColor = .black
-        label.backgroundColor = .clear
-        label.textAlignment = .left
-        return label
-    }()
-    
-    let feelsLikeTemperatureLabel: UILabel = {
-        let label = UILabel()
-        label.text = "20 °C"
-        label.font = UIFont(name: "Copperplate", size: 20)
         label.tintColor = .black
         label.backgroundColor = .clear
         label.textAlignment = .center
         return label
     }()
+
     
-    let feelsLikeTemperatureTextLabel: UILabel = {
+    let feelsLikeTemperatureLabel: UILabel = {
         let label = UILabel()
-        label.text = "Feels like:"
+        label.text = "Feels like: 0°C"
         label.font = UIFont(name: "Copperplate", size: 20)
         label.tintColor = .black
         label.backgroundColor = .clear
-        label.textAlignment = .left
+        label.textAlignment = .center
         return label
     }()
     
@@ -125,8 +92,8 @@ class WeatherViewController: UIViewController {
     func updateInterface(weather: CurrentWeather) {
         DispatchQueue.main.async {
             self.cityLabel.text = weather.cityName
-            self.temperatureLabel.text = weather.temperatureString
-            self.feelsLikeTemperatureLabel.text = "\(weather.feelsLikeTemperatureString)°C"
+            self.temperatureLabel.text = "\(weather.temperatureString)°C"
+            self.feelsLikeTemperatureLabel.text = "Feels like: \(weather.feelsLikeTemperatureString)°C"
             self.weatherIconImageView.image = UIImage(systemName: weather.systemIconNameString)
         }
     }
@@ -140,27 +107,18 @@ class WeatherViewController: UIViewController {
     private func setupConstraints() {
         
         view.addSubview(mainView)
-        mainView.addSubview(firstView)
-        mainView.addSubview(secondView)
         mainView.addSubview(weatherIconImageView)
+        mainView.addSubview(temperatureLabel)
+        mainView.addSubview(feelsLikeTemperatureLabel)
         mainView.addSubview(searchButton)
         mainView.addSubview(cityLabel)
-        firstView.addSubview(temperatureLabel)
-        firstView.addSubview(temperatureTextLabel)
-        secondView.addSubview(feelsLikeTemperatureLabel)
-        secondView.addSubview(feelsLikeTemperatureTextLabel)
-        
         
         [mainView,
-         firstView,
-         secondView,
+         temperatureLabel,
          weatherIconImageView,
          searchButton,
          cityLabel,
-         temperatureLabel,
-         temperatureTextLabel,
-         feelsLikeTemperatureLabel,
-         feelsLikeTemperatureTextLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+         feelsLikeTemperatureLabel].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         NSLayoutConstraint.activate([
             mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -177,45 +135,17 @@ class WeatherViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            firstView.topAnchor.constraint(equalTo: weatherIconImageView.bottomAnchor),
-            firstView.leadingAnchor.constraint(equalTo: weatherIconImageView.leadingAnchor),
-            firstView.trailingAnchor.constraint(equalTo: weatherIconImageView.trailingAnchor),
-            firstView.heightAnchor.constraint(equalToConstant: 90)
+            temperatureLabel.topAnchor.constraint(equalTo: weatherIconImageView.bottomAnchor),
+            temperatureLabel.leadingAnchor.constraint(equalTo: weatherIconImageView.leadingAnchor),
+            temperatureLabel.trailingAnchor.constraint(equalTo: weatherIconImageView.trailingAnchor),
+            temperatureLabel.heightAnchor.constraint(equalToConstant: 90)
         ])
         
         NSLayoutConstraint.activate([
-            temperatureLabel.leadingAnchor.constraint(equalTo: firstView.leadingAnchor),
-            temperatureLabel.trailingAnchor.constraint(equalTo: firstView.centerXAnchor),
-            temperatureLabel.topAnchor.constraint(equalTo: firstView.topAnchor),
-            temperatureLabel.bottomAnchor.constraint(equalTo: firstView.bottomAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            temperatureTextLabel.leadingAnchor.constraint(equalTo: firstView.centerXAnchor),
-            temperatureTextLabel.trailingAnchor.constraint(equalTo: firstView.trailingAnchor),
-            temperatureTextLabel.topAnchor.constraint(equalTo: firstView.topAnchor),
-            temperatureTextLabel.bottomAnchor.constraint(equalTo: firstView.bottomAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            secondView.topAnchor.constraint(equalTo: firstView.bottomAnchor),
-            secondView.leadingAnchor.constraint(equalTo: weatherIconImageView.leadingAnchor),
-            secondView.trailingAnchor.constraint(equalTo: weatherIconImageView.trailingAnchor),
-            secondView.heightAnchor.constraint(equalToConstant: 45)
-        ])
-        
-        NSLayoutConstraint.activate([
-            feelsLikeTemperatureTextLabel.leadingAnchor.constraint(equalTo: secondView.leadingAnchor, constant: 8),
-            feelsLikeTemperatureTextLabel.trailingAnchor.constraint(equalTo: secondView.trailingAnchor),
-            feelsLikeTemperatureTextLabel.topAnchor.constraint(equalTo: secondView.topAnchor),
-            feelsLikeTemperatureTextLabel.bottomAnchor.constraint(equalTo: secondView.bottomAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            feelsLikeTemperatureLabel.leadingAnchor.constraint(equalTo: secondView.centerXAnchor),
-            feelsLikeTemperatureLabel.trailingAnchor.constraint(equalTo: secondView.trailingAnchor),
-            feelsLikeTemperatureLabel.topAnchor.constraint(equalTo: secondView.topAnchor),
-            feelsLikeTemperatureLabel.bottomAnchor.constraint(equalTo: secondView.bottomAnchor)
+            feelsLikeTemperatureLabel.topAnchor.constraint(equalTo: temperatureLabel.bottomAnchor),
+            feelsLikeTemperatureLabel.leadingAnchor.constraint(equalTo: weatherIconImageView.leadingAnchor),
+            feelsLikeTemperatureLabel.trailingAnchor.constraint(equalTo: weatherIconImageView.trailingAnchor),
+            feelsLikeTemperatureLabel.heightAnchor.constraint(equalToConstant: 45)
         ])
         
         NSLayoutConstraint.activate([
